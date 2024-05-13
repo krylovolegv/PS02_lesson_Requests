@@ -1,11 +1,7 @@
 import requests
-import pprint
+img = "https://sun9-21.userapi.com/impg/S99EVTZNi9e9CfQLGoZFYG5DlFbyfugWJrUEGw/77y2k9wXdEo.jpg?size=860x484&quality=95&sign=dd48352b65e741350ae537000676cac9&type=album"
 
-params = {
-    'q':'python'
-}
-response = requests.get('https://api.github.com/search/repositories', params=params)
+response = requests.get(img)
 
-response_json = response.json()
-
-print(f"количество репозиториев с использованием PYTHON: {response_json['total_count']}")
+with open("test.jpg", "wb") as file:
+    file.write(response.content)
